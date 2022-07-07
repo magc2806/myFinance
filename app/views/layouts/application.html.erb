@@ -21,6 +21,8 @@
         <%= link_to_unless_current "Log in", new_user_session_path %>
         <%= link_to_unless_current "Register", new_user_registration_path %>
       <% end %>
-    <%= yield %>
+      <div class="container">
+        <%= yield %>
+      </div>
   </body>
 </html>

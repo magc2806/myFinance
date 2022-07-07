@@ -31,4 +31,4 @@
 /config/master.key
 
 #ignore vscode
-/.vscode/settings.json
+/.vscode/*
