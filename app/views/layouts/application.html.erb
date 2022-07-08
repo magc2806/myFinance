@@ -11,13 +11,11 @@
   </head>
 
   <body>
-      <%= render 'partials/nav'%>
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
-      
-      
-      <div class="container-fluid">
-        <%= yield %>
-      </div>
+    <%= render 'partials/nav'%>
+    <%= render 'partials/errors'%>
+                
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>

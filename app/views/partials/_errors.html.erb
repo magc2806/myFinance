@@ -1,0 +1,10 @@
+<% flash.each do |name, msg| %>
+  <%msg = [msg] if !msg.kind_of?(Array)%>
+  <%msg.each do |error|%>
+    <% if name == 'notice'%>
+      <p class='alert alert-primary'> <%= error%>  </p>
+    <%else%>
+          <p class='alert alert-danger'> <%= error%> </p>
+    <%end%>   
+  <%end%>
+<% end %>
