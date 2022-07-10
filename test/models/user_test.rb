@@ -9,7 +9,7 @@
 #  reset_password_sent_at :datetime
 #  remember_created_at    :datetime
 #  name                   :string           default(""), not null
-#  language               :string           default("es"), not null
+#  language               :string           default("español"), not null
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #

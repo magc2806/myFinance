@@ -9,7 +9,7 @@
 #  reset_password_sent_at :datetime
 #  remember_created_at    :datetime
 #  name                   :string           default(""), not null
-#  language               :string           default("es"), not null
+#  language               :string           default("español"), not null
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #
@@ -19,6 +19,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+
+  has_many :bank_accounts,-> {where(active: true)}, foreign_key: :owner_id, dependent: :destroy
+  
   validates :name, presence: true
   validates :language,presence: true
   validates_format_of :email, with: /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
