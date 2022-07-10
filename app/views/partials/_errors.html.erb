@@ -2,9 +2,15 @@
   <%msg = [msg] if !msg.kind_of?(Array)%>
   <%msg.each do |error|%>
     <% if name == 'notice'%>
-      <p class='alert alert-primary'> <%= error%>  </p>
+      <div class="alert alert-primary alert-dismissible fade show" role="alert">
+        <strong><%= error%></strong> 
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>      
     <%else%>
-          <p class='alert alert-danger'> <%= error%> </p>
+      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong><%= error%></strong> 
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>         
     <%end%>   
   <%end%>
 <% end %>

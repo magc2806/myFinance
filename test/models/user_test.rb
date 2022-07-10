@@ -19,4 +19,20 @@ class UserTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
+
+  test "user name is required" do
+    user = User.new(email: "email3@email.com", password: "123456" ) 
+    assert_not user.valid?
+  end
+
+  test "email can't be duplacated" do
+    user = User.new(name: "pedro", email: "manuel@gmail.com",password: "123456")
+    assert_not user.save
+  end
+
+  test "email can't invalid format" do
+    user = User.new(name: "pedro", email: "manuel@",password: "123456")
+    
+    assert_not user.save
+  end
 end
