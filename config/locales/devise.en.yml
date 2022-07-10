@@ -63,3 +63,7 @@ en:
       not_saved:
         one: "1 error prohibited this %{resource} from being saved:"
         other: "%{count} errors prohibited this %{resource} from being saved:"
+  views:
+    devise:
+      resend_confirmation: Resend confirmation instructions
+      send_reset_instructions: Send me reset password instructions

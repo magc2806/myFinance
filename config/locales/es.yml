@@ -1,0 +1,60 @@
+---
+es:
+  activerecord:
+    models:
+      user:
+        one: usuario
+        other: usuarios
+    attributes:
+      user:
+        current_password: contraseña actual
+        password: contraseña
+        email: email
+        encrypted_password: contrañsea encriptada
+        language: lenguaje
+        name: nombre
+        remember_created_at: recordatiorio creado
+        reset_password_sent_at: contraseña reseteada
+        reset_password_token: token de reseteo de contraseña
+        password_confirmation: confirmar contraseña
+        remember_me: recordar
+    errors:
+      models:
+        user:
+          attributes:
+            current_password:
+              blank: no puede estar vacía
+            email:
+              invalid: con formato inválido
+  errors:
+    messages:
+      not_saved: Not saved
+  hello: Hola
+  views:
+    devise:
+      resend_confirmation: Reenviar instrucciones de confirmación
+      send_reset_instructions: Enviar instrucciones de recuperación
+      forgot_password: ¿Olvidaste tu contraseña?
+      log_in: Iniciar sesión
+      sign_up: Registrase
+      not_confirmation_instructions: ¿No recibiste las intrucciones de recuparación?
+      not_unlock_instructions: ¿No recibiste las instrucciones de desbloqueo?
+      characters_minimum: caracteres mínimos
+      profile: perfil
+      log_out: cerrar sesión
+      change_password: cambiar contraseña
+      new_password: nueva contraseña
+      leave_blank: dejar en blanco si no quieres cambiarla
+      need_current_password: necesitamos tu contraseña actual para realizar los cambios 
+      cancel_account: eliminar cuenta
+    common:
+      edit: editar
+      update: actualizar
+      are_you_sure: ¿Estás seguro?
+      back: volver
+      root: inicio
+
+
+
+
+

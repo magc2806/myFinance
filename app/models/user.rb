@@ -20,8 +20,19 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :name, presence: true
+  validates :language,presence: true
   validates_format_of :email, with: /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
   
+  enum language: {
+
+    español: "es",
+
+    english: "en"
+  }
+
+  def language_code
+    User.languages[self.language]    
+  end
 
 
 end

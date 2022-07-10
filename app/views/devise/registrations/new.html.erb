@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-4">
   
-    <h2>Sign up</h2>
+    <h2><%=t('views.devise.sign_up')%> </h2>
 
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), data: {turbo: false}) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
@@ -19,9 +19,15 @@
       </div>
 
       <div>
+        <%= f.label :language , class: "form-label"%><br />
+        <%= f.select :language,options_for_select(User.languages.map{|k,v| [k.titleize, v]}), {include_blank: true},{class: "form-select"} %>
+      </div>
+
+
+      <div>
         <%= f.label :password, class: "form-label" %>
         <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <em>(<%=@minimum_password_length.to_s+" "+t('views.devise.characters_minimum')%>)</em>
         <% end %><br />
         <%= f.password_field :password ,class: "form-control",  autocomplete: "new-password" %>
       </div>
@@ -32,7 +38,7 @@
       </div>
 
       <div class="actions">
-        <%= f.submit "Sign up" %>
+        <%= f.submit t('views.devise.sign_up') %>
       </div>
     <% end %>
 

@@ -1,13 +1,55 @@
 ---
 en:
   activerecord:
+    models:
+      user:
+        one: user
+        other: users
     attributes:
       user:
+        current_password: curent password
+        password: password
         email: email
-        name: name
+        encrypted_password: encrypted_password
         language: language
-        encrypted_password: contrañsea encriptada
-        reset_password_token: token de reseteo de contraseña
-        reset_password_sent_at: contraseña reseteada
+        name: name
         remember_created_at: recordatiorio creado
-  
+        reset_password_sent_at: password rested at
+        reset_password_token: reset password token
+        password_confirmation: password confirmation
+        remember_me: remember me
+    errors:
+      models:
+        user:
+          attributes:
+            current_password:
+              blank: no puede estar vacía
+            email:
+              invalid: con formato inválido
+  errors:
+    messages:
+      not_saved: No guardado
+  hello: hello
+  views:
+    devise:
+      resend_confirmation: Resend confirmation instructions
+      send_reset_instructions: Send me reset password instructions
+      forgot_password: Forgot your password?
+      log_in: log in
+      sign_up: sign up
+      not_confirmation_instructions: Didn't receive confirmation instructions?
+      not_unlock_instructions: Didn't receive unlock instructions
+      characters_minimum: characters minimum
+      profile: profile
+      log_out: log out
+      change_password: change contraseña
+      new_password: new password
+      leave_blank: leave blank if you don't want to change it
+      need_current_password: we need your current password to confirm your changes 
+      cancel_account: cancel my account 
+    common:
+      edit: edit
+      update: update
+      are_you_sure: are you sure?
+      back: back
+      root: home
