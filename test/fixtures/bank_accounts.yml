@@ -12,3 +12,15 @@
 #  updated_at     :datetime         not null
 #
 
+bank_account1:
+  name: "principal"
+  account_number: "123456"
+  bank_name: "scotiabank"
+  active: true
+  owner: manuel
+bank_account2:
+  name: "cuenta 2"
+  account_number: "33333"
+  bank_name: "scotiabank"
+  active: false
+  owner: manuel

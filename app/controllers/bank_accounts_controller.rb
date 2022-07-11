@@ -18,22 +18,41 @@ class BankAccountsController < ApplicationController
     respond_to do |format|
       if @bank_account.save
         format.html { redirect_to bank_accounts_path, notice: I18n.t('views.common.messages.successful_creation')}
-        format.json { render bank_accounts_path, status: :created, location: @bank_account }        
+                
       else
         flash[:alert] = @bank_account.errors.full_messages
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @bank_account.errors, status: :unprocessable_entity }
+        format.html { render :new, status: :unprocessable_entity }        
       end    
     end
 
     
   end
 
-  def update
+  def edit
     
   end
 
+
+  def update
+    respond_to do |format|
+      if @bank_account.update(bank_account_params)
+        format.html { redirect_to bank_accounts_path, notice: I18n.t('views.common.messages.successful_update') }        
+      else
+        flash[:alert] = @bank_account.errors.full_messages
+        format.html { render :edit, status: :unprocessable_entity }        
+      end
+    end    
+  end
+
   def destroy
+    respond_to do |format|
+      if @bank_account.update(active: false)
+        format.html { redirect_to bank_accounts_path, notice: I18n.t('views.common.messages.successful_destroy') }
+      else
+        flash[:alert] = @bank_account.errors.full_messages
+        format.html { render :index, status: :unprocessable_entity }
+      end
+    end
     
   end
 

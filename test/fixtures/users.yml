@@ -23,3 +23,10 @@ manuel:
   email: "manuel@gmail.com"
   encrypted_password: "123456"
   language: "es"
+jose:
+  name: "jose"
+  email: "jose@gmail.com"
+  encrypted_password: "123987"
+  language: "es"
+  
+

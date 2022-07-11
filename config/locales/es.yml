@@ -27,6 +27,15 @@ es:
               blank: no puede estar vacía
             email:
               invalid: con formato inválido
+        bank_account:
+          attributes:
+            account_number:
+              taken: ya existe en otra de tus cuentas activas
+              blank: no puede estar vacío
+            bank_name:
+              blank: no puede estar vacío
+            name:
+              blank: no puede estar vacío
     models:
       bank_account:
         one: cuenta bancaria
@@ -51,10 +60,16 @@ es:
       messages:
         successful_creation: creación exitosa
         no_results: sin resultados
+        successful_update: actualización exitosa
+        successful_destroy: eliminación exitosa
       root: inicio
       update: actualizar
     bank_account:
-      new: nueva cuenta
+      new: nueva cuenta bancaria
+      edit: editar cuenta
+      placeholder:
+        name: "ej: cuenta principal" 
+        account_number: "ej: 123456"
     devise:
       cancel_account: eliminar cuenta
       change_password: cambiar contraseña

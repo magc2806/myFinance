@@ -27,6 +27,15 @@ en:
               blank: can't be blank
             email:
               invalid: without valid format
+        bank_account:
+          attributes:
+            account_number:
+              taken: already exists in another of your active accounts
+              blank: can't be blank
+            bank_name:
+              blank: can't be blank
+            name:
+              blank: can't be blank
     models:
       bank_account:
         one: bank account
@@ -51,10 +60,16 @@ en:
       messages:
         successful_creation: Successful creation
         no_results: no reuslts
+        successful_update: Successful update
+        successful_destroy: Succesful delete
       root: home
       update: update
     bank_account:
       new: new bank account
+      edit: edit bank account
+      placeholder:
+        name: "ex: main account"
+        account_number: "ex: 123456"
     devise:
       cancel_account: cancel my account
       change_password: change contraseña

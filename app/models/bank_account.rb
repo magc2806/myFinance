@@ -13,4 +13,10 @@
 #
 class BankAccount < ApplicationRecord
   belongs_to :owner, class_name: 'User',foreign_key: :owner_id
+
+  validates :bank_name, presence: true
+  validates :account_number, presence: true
+  validates :name, presence: true
+  validates :account_number, uniqueness: { scope: [:active,:owner_id, :bank_name] }, if: ->{active?}
+
 end
