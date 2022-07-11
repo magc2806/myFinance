@@ -1,0 +1,5 @@
+<h1><%=BankAccount.model_name.human(count: 2).titleize%></h1>
+
+<%= link_to t('views.bank_account.new').capitalize, new_bank_account_path, class: "mt-4 btn btn-primary" %>
+
+<%= render @bank_accounts.empty? ? 'partials/no_results' : 'index_table', {bank_accounts: @bank_accounts} %>

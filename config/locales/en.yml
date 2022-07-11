@@ -1,55 +1,73 @@
 ---
 en:
   activerecord:
-    models:
-      user:
-        one: user
-        other: users
     attributes:
+      bank_account:
+        account_number: account number
+        active: active
+        bank_name: bank's name
+        name: name
       user:
         current_password: curent password
-        password: password
         email: email
         encrypted_password: encrypted_password
         language: language
         name: name
-        remember_created_at: recordatiorio creado
+        password: password
+        password_confirmation: password confirmation
+        remember_created_at: remembered at
+        remember_me: remember me
         reset_password_sent_at: password rested at
         reset_password_token: reset password token
-        password_confirmation: password confirmation
-        remember_me: remember me
     errors:
       models:
         user:
           attributes:
             current_password:
-              blank: no puede estar vacía
+              blank: can't be blank
             email:
-              invalid: con formato inválido
+              invalid: without valid format
+    models:
+      bank_account:
+        one: bank account
+        other: bank accounts
+      user:
+        one: user
+        other: users
   errors:
     messages:
-      not_saved: No guardado
+      not_saved: not saved
   hello: hello
+  helpers:
+    submit:
+      create: Create %{model}
+      update: Update %{model} 
   views:
-    devise:
-      resend_confirmation: Resend confirmation instructions
-      send_reset_instructions: Send me reset password instructions
-      forgot_password: Forgot your password?
-      log_in: log in
-      sign_up: sign up
-      not_confirmation_instructions: Didn't receive confirmation instructions?
-      not_unlock_instructions: Didn't receive unlock instructions
-      characters_minimum: characters minimum
-      profile: profile
-      log_out: log out
-      change_password: change contraseña
-      new_password: new password
-      leave_blank: leave blank if you don't want to change it
-      need_current_password: we need your current password to confirm your changes 
-      cancel_account: cancel my account 
     common:
-      edit: edit
-      update: update
       are_you_sure: are you sure?
       back: back
+      edit: edit
+      destroy: delete
+      messages:
+        successful_creation: Successful creation
+        no_results: no reuslts
       root: home
+      update: update
+    bank_account:
+      new: new bank account
+    devise:
+      cancel_account: cancel my account
+      change_password: change contraseña
+      characters_minimum: characters minimum
+      forgot_password: Forgot your password?
+      leave_blank: leave blank if you don't want to change it
+      log_in: log in
+      log_out: log out
+      need_current_password: we need your current password to confirm your changes
+      new_password: new password
+      not_confirmation_instructions: Didn't receive confirmation instructions?
+      not_unlock_instructions: Didn't receive unlock instructions
+      profile: profile
+      resend_confirmation: Resend confirmation instructions
+      send_reset_instructions: Send me reset password instructions
+      sign_up: sign up

@@ -1,0 +1,17 @@
+<table>
+  <thead>
+    <tr>
+      <th><%=BankAccount.human_attribute_name("bank_name")%> </th>
+      <th><%=BankAccount.human_attribute_name("account_number")%> </th>
+      <th><%=BankAccount.human_attribute_name("name")%> </th>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% bank_accounts.each do |bank_account| %>
+      <%= render bank_account%>
+    <% end %>
+  </tbody>
+</table>
+

@@ -1,23 +1,24 @@
 ---
 es:
   activerecord:
-    models:
-      user:
-        one: usuario
-        other: usuarios
     attributes:
+      bank_account:
+        account_number: numero de cuenta
+        active: activa
+        bank_name: banco
+        name: nombre
       user:
         current_password: contraseña actual
-        password: contraseña
         email: email
         encrypted_password: contrañsea encriptada
         language: lenguaje
         name: nombre
+        password: contraseña
+        password_confirmation: confirmar contraseña
         remember_created_at: recordatiorio creado
+        remember_me: recordar
         reset_password_sent_at: contraseña reseteada
         reset_password_token: token de reseteo de contraseña
-        password_confirmation: confirmar contraseña
-        remember_me: recordar
     errors:
       models:
         user:
@@ -26,35 +27,47 @@ es:
               blank: no puede estar vacía
             email:
               invalid: con formato inválido
+    models:
+      bank_account:
+        one: cuenta bancaria
+        other: cuentas bancarias
+      user:
+        one: usuario
+        other: usuarios
   errors:
     messages:
       not_saved: Not saved
   hello: Hola
+  helpers:
+    submit:
+      create: Crear %{model}
+      update: Actualizar %{model} 
   views:
+    common:
+      are_you_sure: "¿Estás seguro?"
+      back: volver
+      edit: editar
+      destroy: eliminar
+      messages:
+        successful_creation: creación exitosa
+        no_results: sin resultados
+      root: inicio
+      update: actualizar
+    bank_account:
+      new: nueva cuenta
     devise:
+      cancel_account: eliminar cuenta
+      change_password: cambiar contraseña
+      characters_minimum: caracteres mínimos
+      forgot_password: "¿Olvidaste tu contraseña?"
+      leave_blank: dejar en blanco si no quieres cambiarla
+      log_in: Iniciar sesión
+      log_out: cerrar sesión
+      need_current_password: necesitamos tu contraseña actual para realizar los cambios
+      new_password: nueva contraseña
+      not_confirmation_instructions: "¿No recibiste las intrucciones de recuparación?"
+      not_unlock_instructions: "¿No recibiste las instrucciones de desbloqueo?"
+      profile: perfil
       resend_confirmation: Reenviar instrucciones de confirmación
       send_reset_instructions: Enviar instrucciones de recuperación
-      forgot_password: ¿Olvidaste tu contraseña?
-      log_in: Iniciar sesión
       sign_up: Registrase
-      not_confirmation_instructions: ¿No recibiste las intrucciones de recuparación?
-      not_unlock_instructions: ¿No recibiste las instrucciones de desbloqueo?
-      characters_minimum: caracteres mínimos
-      profile: perfil
-      log_out: cerrar sesión
-      change_password: cambiar contraseña
-      new_password: nueva contraseña
-      leave_blank: dejar en blanco si no quieres cambiarla
-      need_current_password: necesitamos tu contraseña actual para realizar los cambios 
-      cancel_account: eliminar cuenta
-    common:
-      edit: editar
-      update: actualizar
-      are_you_sure: ¿Estás seguro?
-      back: volver
-      root: inicio
-
-
-
-
-
