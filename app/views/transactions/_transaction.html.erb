@@ -1,0 +1,8 @@
+<tr>
+  <td><%= transaction.transaction_date.strftime("%d/%m/%Y") %></td>
+  <td><%= transaction.description %></td>
+  <td><%= transaction.amount %></td>  
+  <td><%= link_to t('views.common.edit'), edit_bank_account_transaction_path(bank_account, transaction) %></td>
+  <td><%= link_to t('views.common.destroy'), [bank_account, transaction],  data: {turbo_method: :delete, turbo_confirm: t('views.common.are_you_sure')} %></td>
+        
+</tr>

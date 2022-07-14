@@ -7,6 +7,10 @@ es:
         active: activa
         bank_name: banco
         name: nombre
+      transaction:
+        amount: monto
+        description: descripcción
+        transaction_date: fecha de transacción
       user:
         current_password: contraseña actual
         email: email
@@ -21,55 +25,65 @@ es:
         reset_password_token: token de reseteo de contraseña
     errors:
       models:
+        bank_account:
+          attributes:
+            account_number:
+              blank: no puede estar vacío
+              taken: ya existe en otra de tus cuentas activas
+            bank_name:
+              blank: no puede estar vacío
+            name:
+              blank: no puede estar vacío
         user:
           attributes:
             current_password:
               blank: no puede estar vacía
             email:
               invalid: con formato inválido
-        bank_account:
-          attributes:
-            account_number:
-              taken: ya existe en otra de tus cuentas activas
-              blank: no puede estar vacío
-            bank_name:
-              blank: no puede estar vacío
-            name:
-              blank: no puede estar vacío
     models:
       bank_account:
         one: cuenta bancaria
         other: cuentas bancarias
+      transaction:
+        one: transacción
+        other: transacciones
       user:
         one: usuario
         other: usuarios
+  date:
+    order:
+    - day
+    - month
+    - year
   errors:
     messages:
       not_saved: Not saved
+  formats:
+    default: "%d-%m-%Y"
   hello: Hola
   helpers:
     submit:
       create: Crear %{model}
-      update: Actualizar %{model} 
+      update: Actualizar %{model}
   views:
+    bank_account:
+      edit: editar cuenta
+      new: nueva cuenta bancaria
+      placeholder:
+        account_number: 'ej: 123456'
+        name: 'ej: cuenta principal'
     common:
       are_you_sure: "¿Estás seguro?"
       back: volver
-      edit: editar
       destroy: eliminar
+      edit: editar
       messages:
-        successful_creation: creación exitosa
         no_results: sin resultados
-        successful_update: actualización exitosa
+        successful_creation: creación exitosa
         successful_destroy: eliminación exitosa
+        successful_update: actualización exitosa
       root: inicio
       update: actualizar
-    bank_account:
-      new: nueva cuenta bancaria
-      edit: editar cuenta
-      placeholder:
-        name: "ej: cuenta principal" 
-        account_number: "ej: 123456"
     devise:
       cancel_account: eliminar cuenta
       change_password: cambiar contraseña
@@ -86,3 +100,6 @@ es:
       resend_confirmation: Reenviar instrucciones de confirmación
       send_reset_instructions: Enviar instrucciones de recuperación
       sign_up: Registrase
+    transaction:
+      edit: editar transacciones
+      new: nueva transacción

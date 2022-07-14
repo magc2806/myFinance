@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   before_action :set_locale
 
   def set_locale
+    
     if user_signed_in?
       I18n.locale = current_user.language_code
     else 

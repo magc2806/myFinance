@@ -52,8 +52,7 @@ class BankAccountsController < ApplicationController
         flash[:alert] = @bank_account.errors.full_messages
         format.html { render :index, status: :unprocessable_entity }
       end
-    end
-    
+    end    
   end
 
   private

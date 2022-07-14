@@ -14,6 +14,8 @@
 class BankAccount < ApplicationRecord
   belongs_to :owner, class_name: 'User',foreign_key: :owner_id
 
+  has_many :transactions, dependent: :destroy
+
   validates :bank_name, presence: true
   validates :account_number, presence: true
   validates :name, presence: true

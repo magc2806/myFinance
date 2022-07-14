@@ -1,0 +1,16 @@
+<table>
+  <thead>
+    <tr>
+      <th><%=Transaction.human_attribute_name("transaction_date")%> </th>
+      <th><%=Transaction.human_attribute_name("description")%> </th>
+      <th><%=Transaction.human_attribute_name("amount")%> </th>      
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  
+  <tbody>
+    <%= render transactions , {bank_account: bank_account}%>        
+        
+  </tbody>
+</table>

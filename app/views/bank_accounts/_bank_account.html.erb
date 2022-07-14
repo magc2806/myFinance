@@ -1,6 +1,6 @@
 <tr>
   <td><%= bank_account.bank_name %></td>
-  <td><%= bank_account.account_number %></td>
+  <td><%= link_to bank_account.account_number, bank_account_transactions_path(bank_account)%></td>
   <td><%= bank_account.name %></td>
   <td><%= link_to t('views.common.edit'), edit_bank_account_path(bank_account) %></td>
   <td><%= link_to t('views.common.destroy'), bank_account, data: {turbo_method: :delete, turbo_confirm: t('views.common.are_you_sure')} %></td>

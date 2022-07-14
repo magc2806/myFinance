@@ -7,6 +7,10 @@ en:
         active: active
         bank_name: bank's name
         name: name
+      transaction:
+        amount: amount
+        description: description
+        transaction_date: transaction date
       user:
         current_password: curent password
         email: email
@@ -21,55 +25,62 @@ en:
         reset_password_token: reset password token
     errors:
       models:
+        bank_account:
+          attributes:
+            account_number:
+              blank: can't be blank
+              taken: already exists in another of your active accounts
+            bank_name:
+              blank: can't be blank
+            name:
+              blank: can't be blank
         user:
           attributes:
             current_password:
               blank: can't be blank
             email:
               invalid: without valid format
-        bank_account:
-          attributes:
-            account_number:
-              taken: already exists in another of your active accounts
-              blank: can't be blank
-            bank_name:
-              blank: can't be blank
-            name:
-              blank: can't be blank
     models:
       bank_account:
         one: bank account
         other: bank accounts
+      transaction:
+        one: transaction
+        other: transactions
       user:
         one: user
         other: users
+  date:
+    order: '["year", "month", "day"]'
   errors:
     messages:
       not_saved: not saved
+  formats:
+    default: "%Y-%m-%d"
   hello: hello
   helpers:
     submit:
       create: Create %{model}
-      update: Update %{model} 
+      update: Update %{model}
   views:
+    bank_account:
+      edit: edit bank account
+      new: new bank account
+      placeholder:
+        account_number: 'ex: 123456'
+        name: 'ex: main account'
     common:
       are_you_sure: are you sure?
       back: back
-      edit: edit
       destroy: delete
+      edit: edit
       messages:
-        successful_creation: Successful creation
         no_results: no reuslts
-        successful_update: Successful update
+        successful_creation: Successful creation
         successful_destroy: Succesful delete
+        successful_update: Successful update
       root: home
       update: update
-    bank_account:
-      new: new bank account
-      edit: edit bank account
-      placeholder:
-        name: "ex: main account"
-        account_number: "ex: 123456"
     devise:
       cancel_account: cancel my account
       change_password: change contraseña
@@ -86,3 +97,6 @@ en:
       resend_confirmation: Resend confirmation instructions
       send_reset_instructions: Send me reset password instructions
       sign_up: sign up
+    transaction:
+      edit: edit transaction
+      new: new transaction

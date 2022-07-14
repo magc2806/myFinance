@@ -4,5 +4,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "home#index"
-  resources :bank_accounts, except: [:show]
+  resources :bank_accounts, except: [:show] do 
+    resources :transactions, except: [:show]
+  end
 end

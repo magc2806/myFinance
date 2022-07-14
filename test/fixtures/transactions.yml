@@ -1,0 +1,24 @@
+# == Schema Information
+#
+# Table name: transactions
+#
+#  id               :bigint           not null, primary key
+#  amount           :decimal(10, 2)   default(0.0)
+#  transaction_date :date             not null
+#  bank_account_id  :bigint           not null
+#  description      :string           default(""), not null
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#
+
+one:
+  amount: 9.99
+  transation_date: 2022-07-12
+  bank_account: one
+  description: MyString
+
+two:
+  amount: 9.99
+  transation_date: 2022-07-12
+  bank_account: two
+  description: MyString

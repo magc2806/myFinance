@@ -1,0 +1,25 @@
+<%=form_with(model: [@bank_account,@transaction], local: true) do |f| %>
+  
+  <div class="mt-2">
+    <%= f.label :transaction_date, class:"form-label" %>
+    <%= f.date_field :transaction_date, class: "form-control" %>
+  </div>
+
+  <div class="mt-2">
+    <%= f.label :amount, class:"form-label" %>
+    <%= f.number_field :amount, step: 0.5,class: "form-control" %>
+  </div>
+
+  <div class="mt-2">
+    <%= f.label :description, class:"form-label" %>
+    <%= f.text_area :description, class: "form-control" %>
+  </div>
+
+  <div class="mt-4">
+    <span>
+      <%= f.submit class: "btn btn-primary btn-sm" %>
+      <%= link_to t('views.common.back'), bank_account_transactions_path(@bank_account), class: 'btn btn-secondary btn-sm'%>
+    </span>
+  </div>
+  
+<%end%>
