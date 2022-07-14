@@ -40,6 +40,14 @@ es:
               blank: no puede estar vacía
             email:
               invalid: con formato inválido
+        transaction:
+          attributes:
+            transaction_date:
+              blank: no puede estar vacía
+            description:
+              blank: no puede estar vacía
+            amount:
+              other_than: no puede ser 0
     models:
       bank_account:
         one: cuenta bancaria
@@ -57,7 +65,7 @@ es:
     - year
   errors:
     messages:
-      not_saved: Not saved
+      not_saved: No se guardó
   formats:
     default: "%d-%m-%Y"
   hello: Hola

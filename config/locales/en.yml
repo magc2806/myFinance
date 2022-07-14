@@ -34,6 +34,14 @@ en:
               blank: can't be blank
             name:
               blank: can't be blank
+        transaction:
+          attributes:
+            amount:
+              other_than: can't be 0
+            description:
+              blank: can't be blank
+            transaction_date:
+              blank: can't be blank
         user:
           attributes:
             current_password:
