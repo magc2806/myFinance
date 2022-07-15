@@ -3,6 +3,9 @@
 
 <h2><%=Transaction.model_name.human(count: 2)%> </h2>
 
+
+<%=render 'search_transactions' %>
+
 <%= link_to t('views.transaction.new').capitalize, new_bank_account_transaction_path, class: "mt-4 btn btn-primary" %>
 
 <%= render @transactions.empty? ? 'partials/no_results' : 'index_table', {transactions: @transactions, bank_account: @bank_account} %>

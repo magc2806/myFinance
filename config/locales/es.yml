@@ -111,3 +111,5 @@ es:
     transaction:
       edit: editar transacciones
       new: nueva transacción
+      error_searching:
+        dates: Ambas fechas deben estar presentes

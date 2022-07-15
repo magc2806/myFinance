@@ -11,3 +11,20 @@
 #  updated_at       :datetime         not null
 #
 
+transaction1:
+  amount: 1000
+  bank_account: bank_account1
+  description: "pago arriendo"
+  transaction_date: 2022-07-18
+transaction2:
+  amount: 500
+  bank_account: bank_account1
+  description: "pago comida"
+  transaction_date: 2022-06-18
+transaction3:
+  amount: 300
+  bank_account: bank_account2
+  description: "Atransaccion ahorro"
+  transaction_date: 2022-05-10
+
+

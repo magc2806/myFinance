@@ -14,7 +14,6 @@ class BankAccountsController < ApplicationController
   end
 
   def create
-
     respond_to do |format|
       if @bank_account.save
         format.html { redirect_to bank_accounts_path, notice: I18n.t('views.common.messages.successful_creation')}
@@ -23,9 +22,7 @@ class BankAccountsController < ApplicationController
         flash[:alert] = @bank_account.errors.full_messages
         format.html { render :new, status: :unprocessable_entity }        
       end    
-    end
-
-    
+    end    
   end
 
   def edit
@@ -59,18 +56,14 @@ class BankAccountsController < ApplicationController
 
   def find_bank_account
     @bank_account = current_user.bank_accounts.find(params[:id])
-
   end
 
   def set_bank_account
     @bank_account = current_user.bank_accounts.new(bank_account_params)
-
   end
 
   def bank_account_params
-
-    params.require(:bank_account).permit(:name,:account_number, :bank_name)
-    
+    params.require(:bank_account).permit(:name,:account_number, :bank_name)    
   end
 
 end
