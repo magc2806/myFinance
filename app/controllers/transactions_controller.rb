@@ -17,10 +17,12 @@ class TransactionsController < ApplicationController
   def create
     respond_to do |format|
       if @transaction.save
-        format.html { redirect_to bank_account_transactions_path, notice: I18n.t('views.common.messages.successful_creation')}
-                
+        format.turbo_stream do
+          flash.now[:notice] = I18n.t('views.common.messages.successful_creation')                   
+        end 
+        #format.html { redirect_to bank_account_transactions_path, notice: I18n.t('views.common.messages.successful_creation')}                
       else
-        flash[:alert] = @transaction.errors.full_messages
+        flash.now[:alert] = @transaction.errors.full_messages
         format.html { render :new, status: :unprocessable_entity }        
       end    
     end
@@ -33,10 +35,12 @@ class TransactionsController < ApplicationController
   def update
     respond_to do |format|
       if @transaction.update(transaction_params)
-        format.html { redirect_to bank_account_transactions_path(@bank_account), notice: I18n.t('views.common.messages.successful_update')}
-                
+        format.turbo_stream do 
+          render turbo_stream: turbo_stream.replace("#{@transaction.id}", partial: "transactions/transaction", locals: {bank_account: @transaction.bank_account, transaction: @transaction})        
+        end
+        #format.html { redirect_to bank_account_transactions_path(@bank_account), notice: I18n.t('views.common.messages.successful_update')}                
       else
-        flash[:alert] = @transaction.errors.full_messages
+        flash.now[:alert] = @transaction.errors.full_messages
         format.html { render :new, status: :unprocessable_entity }
       end    
     end   
@@ -45,7 +49,8 @@ class TransactionsController < ApplicationController
   def destroy
     respond_to do |format|
       if @transaction.destroy
-        format.html { redirect_to bank_account_transactions_path, notice: I18n.t('views.common.messages.successful_destroy') }
+        format.turbo_stream
+        #format.html { redirect_to bank_account_transactions_path, notice: I18n.t('views.common.messages.successful_destroy') }
       else
         flash[:alert] = @transaction.errors.full_messages
         format.html { render :index, status: :unprocessable_entity }
@@ -57,7 +62,7 @@ class TransactionsController < ApplicationController
   private
 
   def get_bank_account
-    @bank_account = BankAccount.find(params[:bank_account_id])    
+    @bank_account = BankAccount.includes(:transactions).find(params[:bank_account_id])    
   end
 
   def transaction_params    

@@ -11,8 +11,12 @@
   </head>
 
   <body>
+  
     <%= render 'partials/nav'%>
-    <%= render 'partials/errors'%>
+    <div id="turbo_flash">
+      <%= render 'partials/errors'%>
+    </div>
+  
                 
     <div class="container">
       <%= yield %>
