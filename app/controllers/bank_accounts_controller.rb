@@ -5,8 +5,7 @@ class BankAccountsController < ApplicationController
 
 
   def index
-    @bank_accounts = current_user.bank_accounts
-    
+    @bank_accounts = current_user.bank_accounts    
   end
 
   def new

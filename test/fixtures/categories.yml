@@ -1,0 +1,27 @@
+# == Schema Information
+#
+# Table name: categories
+#
+#  id         :bigint           not null, primary key
+#  name       :string           default(""), not null
+#  color      :string           default("#FFFFFF"), not null
+#  active     :boolean          default(TRUE), not null
+#  to_analyze :boolean          default(TRUE), not null
+#  user_id    :bigint           not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+rent:
+  name: rent
+  color: "#FFFFFF"
+  active: true
+  to_analyze: true
+  user: manuel
+comida:
+  name: comida
+  color: "#FFFFFF"
+  active: true
+  to_analyze: true
+  user: manuel
+

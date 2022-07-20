@@ -9,7 +9,12 @@
     <%= f.label :amount, class:"form-label" %>
     <%= f.number_field :amount, step: :any,class: "form-control" %>
   </div>
-
+  
+  <div class= "mt-2">
+    <%= f.label t('activerecord.models.category.one')%>
+    <%= f.collection_select(:category_id,@categories, :id, :name, {include_blank: true}, {class: "form-select"})%>
+  </div>
+  
   <div class="mt-2">
     <%= f.label :description, class:"form-label" %>
     <%= f.text_area :description, class: "form-control" %>
@@ -18,7 +23,6 @@
   <div class="mt-4">
     <span>
       <%= f.submit class: "btn btn-primary btn-sm" %>
-      <%= link_to t('views.common.back'), bank_account_transactions_path(@bank_account), class: 'btn btn-secondary btn-sm'%>
     </span>
   </div>
   

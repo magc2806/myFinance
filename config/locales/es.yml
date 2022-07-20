@@ -7,6 +7,10 @@ es:
         active: activa
         bank_name: banco
         name: nombre
+      category:
+        name: nombre
+        color: color
+        to_analyze: incluido en análisis
       transaction:
         amount: monto
         description: descripcción
@@ -34,24 +38,27 @@ es:
               blank: no puede estar vacío
             name:
               blank: no puede estar vacío
+        transaction:
+          attributes:
+            amount:
+              other_than: no puede ser 0
+            description:
+              blank: no puede estar vacía
+            transaction_date:
+              blank: no puede estar vacía
         user:
           attributes:
             current_password:
               blank: no puede estar vacía
             email:
               invalid: con formato inválido
-        transaction:
-          attributes:
-            transaction_date:
-              blank: no puede estar vacía
-            description:
-              blank: no puede estar vacía
-            amount:
-              other_than: no puede ser 0
     models:
       bank_account:
         one: cuenta bancaria
         other: cuentas bancarias
+      category:
+        one: categoría
+        other: categorias
       transaction:
         one: transacción
         other: transacciones
@@ -80,6 +87,11 @@ es:
       placeholder:
         account_number: 'ej: 123456'
         name: 'ej: cuenta principal'
+    category:
+      new: nueva categoría
+      edit: editar categoría
+      included: si
+      not_included: "no"
     common:
       are_you_sure: "¿Estás seguro?"
       back: volver
@@ -110,6 +122,6 @@ es:
       sign_up: Registrase
     transaction:
       edit: editar transacciones
-      new: nueva transacción
       error_searching:
         dates: Ambas fechas deben estar presentes
+      new: nueva transacción

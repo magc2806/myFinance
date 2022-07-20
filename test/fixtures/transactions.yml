@@ -21,10 +21,16 @@ transaction2:
   bank_account: bank_account1
   description: "pago comida"
   transaction_date: 2022-06-18
+  category: comida
 transaction3:
   amount: 300
   bank_account: bank_account2
   description: "Atransaccion ahorro"
   transaction_date: 2022-05-10
-
+transaction4:
+  amount: 90
+  bank_account: bank_account1
+  description: "pago restaurant"
+  transaction_date: 2022-08-30
+  category: comida
 

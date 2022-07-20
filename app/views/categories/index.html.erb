@@ -1,0 +1,7 @@
+<h1><%=Category.model_name.human(count: 2)%><%=Time.now%></h1>
+
+<%= link_to t('views.category.new').capitalize, new_category_path, data: {turbo_frame: "turbo_modal"}, class: "mt-4 btn btn-primary" %>
+<%=turbo_frame_tag "turbo_categories_table" do%>
+  <%= render @categories.empty? ? 'partials/no_results' : 'index_table', {categories: @categories} %>
+<%end%>
+<%= turbo_frame_tag "turbo_modal"%>

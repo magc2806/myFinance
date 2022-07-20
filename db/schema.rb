@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_14_023808) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_21_024342) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -25,6 +25,17 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_14_023808) do
     t.index ["owner_id"], name: "index_bank_accounts_on_owner_id"
   end
 
+  create_table "categories", force: :cascade do |t|
+    t.string "name", default: "", null: false
+    t.string "color", default: "#FFFFFF", null: false
+    t.boolean "active", default: true, null: false
+    t.boolean "to_analyze", default: true, null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_categories_on_user_id"
+  end
+
   create_table "transactions", force: :cascade do |t|
     t.decimal "amount", precision: 10, scale: 2, default: "1.0"
     t.date "transaction_date", null: false
@@ -32,7 +43,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_14_023808) do
     t.string "description", default: "", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "category_id"
     t.index ["bank_account_id"], name: "index_transactions_on_bank_account_id"
+    t.index ["category_id"], name: "index_transactions_on_category_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -50,5 +63,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_14_023808) do
   end
 
   add_foreign_key "bank_accounts", "users", column: "owner_id"
+  add_foreign_key "categories", "users"
   add_foreign_key "transactions", "bank_accounts"
+  add_foreign_key "transactions", "categories"
 end

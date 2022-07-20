@@ -21,6 +21,8 @@ class User < ApplicationRecord
 
 
   has_many :bank_accounts,-> {where(active: true)}, foreign_key: :owner_id, dependent: :destroy
+  has_many :all_bank_accounts, class_name: 'BankAccount',foreign_key: :owner_id, dependent: :destroy
+  has_many :categories, ->{where(active: true)}, inverse_of: :user
   
   validates :name, presence: true
   validates :language,presence: true

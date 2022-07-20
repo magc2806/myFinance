@@ -1,0 +1,6 @@
+<tr id=<%=category.id%>>
+  <td class= "badge rounded-pill" style="background-color: <%=category.color%>;"><%=category.name%></td>  
+  <td><%= category.to_analyze ? t('views.category.included'): t('views.category.not_included') %></td>
+  <td><%= link_to t('views.common.edit'), edit_category_path(category), data: {turbo_frame: "turbo_modal"} %></td>
+  <td><%= link_to t('views.common.destroy'), category, data: {turbo_method: :delete, turbo_confirm: t('views.common.are_you_sure')}%></td>
+</tr>

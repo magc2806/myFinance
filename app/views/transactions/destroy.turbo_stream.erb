@@ -1,4 +1,4 @@
 <%=turbo_stream.remove(@transaction.id)%>
-<%if @bank_account.transactions.count <=0%>
+<%if @bank_account.transactions.size <=1%>
   <%=turbo_stream.update("turbo_table", partial: "partials/no_results")%>
 <%end%> 

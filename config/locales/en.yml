@@ -7,6 +7,10 @@ en:
         active: active
         bank_name: bank's name
         name: name
+      category:
+        color: color
+        name: name
+        to_analyze: included in analysis
       transaction:
         amount: amount
         description: description
@@ -52,6 +56,9 @@ en:
       bank_account:
         one: bank account
         other: bank accounts
+      category:
+        one: category
+        other: categories
       transaction:
         one: transaction
         other: transactions
@@ -77,6 +84,11 @@ en:
       placeholder:
         account_number: 'ex: 123456'
         name: 'ex: main account'
+    category:
+      edit: edit category
+      new: new category
+      included: si
+      not_included: "no"
     common:
       are_you_sure: are you sure?
       back: back
@@ -107,4 +119,6 @@ en:
       sign_up: sign up
     transaction:
       edit: edit transaction
+      error_searching:
+        dates: both dates must be present
       new: new transaction

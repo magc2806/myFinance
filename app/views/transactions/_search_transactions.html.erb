@@ -2,6 +2,8 @@
   <%=date_field_tag :filter_min_date, params[:filter_min_date]%>
   <%=date_field_tag :filter_max_date, params[:filter_max_date]%>
   <%=text_field_tag :filter_description, params[:filter_description],placeholder: "Buscar por descripción"%>
+  <%= select_tag "category",options_from_collection_for_select(@categories, :id, :name), {include_blank: true}%>
+  
   <%=number_field_tag :filter_amount, params[:filter_amount],placeholder: "monto"%>
   <%=button_tag "Buscar" ,class: 'btn btn-info'%>
   

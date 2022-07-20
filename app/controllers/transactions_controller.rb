@@ -4,10 +4,14 @@ class TransactionsController < ApplicationController
   before_action :set_transaction, only: [:new, :create]
   before_action :find_transaction, only: [:edit, :update, :destroy]
   before_action :set_search_params, only: [:index]
-
+  before_action :get_categories, only: [:index,:new, :edit]
+  
   def index
-    redirect_to bank_account_transactions_path(@bank_account), alert: I18n.t('views.transaction.error_searching.dates') unless (@min_date && @max_date).present? || @min_date.nil? &&  @max_date.nil?       
-    @transactions = Transaction.search_by_filter(@bank_account.id,@description, @amount, @min_date, @max_date)    
+    #debugger
+    redirect_to bank_account_transactions_path(@bank_account), 
+    alert: I18n.t('views.transaction.error_searching.dates') unless Transaction.dates_checking(@min_date, @max_date)
+    @transactions = Transaction.includes(:category).search_by_filter(@bank_account.id,@category,@description, @amount, @min_date, @max_date)
+    #debugger    
   end
 
   def new
@@ -62,11 +66,11 @@ class TransactionsController < ApplicationController
   private
 
   def get_bank_account
-    @bank_account = BankAccount.includes(:transactions).find(params[:bank_account_id])    
+    @bank_account = BankAccount.find(params[:bank_account_id])    
   end
 
   def transaction_params    
-    params.require(:transaction).permit(:transaction_date,:description, :amount)
+    params.require(:transaction).permit(:transaction_date,:description, :amount, :category_id)
   end
 
   def set_transaction       
@@ -74,7 +78,6 @@ class TransactionsController < ApplicationController
   end
 
   def find_transaction    
-    get_bank_account
     @transaction = @bank_account.transactions.find params[:id]
   end
 
@@ -82,7 +85,14 @@ class TransactionsController < ApplicationController
     @description = params[:filter_description].present? ? params[:filter_description] : nil
     @amount = params[:filter_amount].present? ? params[:filter_amount] : nil
     @min_date = params[:filter_min_date].present? ? params[:filter_min_date] : nil
-    @max_date = params[:filter_max_date].present? ? params[:filter_max_date] : nil        
+    @max_date = params[:filter_max_date].present? ? params[:filter_max_date] : nil 
+    @category = params[:category].present? ? params[:category].to_i : nil 
+           
+  end
+
+  def get_categories
+    @categories = current_user.categories   
+    puts "BUSCANDO CATEGORIAS" 
   end
 
 

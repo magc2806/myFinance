@@ -1,0 +1,5 @@
+<%if @categories.size <=1%>
+  <%=turbo_stream.update("turbo_categories_table", partial: "categories/index_table", locals: {categories: @categories})%>
+<%else%>
+  <%=turbo_stream.prepend("turbo_categories", partial: "categories/category", locals: {category: @category})%>
+<%end%> 
