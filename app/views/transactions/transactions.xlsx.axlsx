@@ -1,0 +1,8 @@
+@transactions ||= transactions
+wb = xlsx_package.workbook
+wb.add_worksheet(name: "Transactions1") do |sheet|
+  sheet.add_row %w[Fecha Categoría Descripción Monto]
+  @transactions.each do |transaction|
+    sheet.add_row [transaction.transaction_date,transaction.category&.name,transaction.description, transaction.amount]
+  end
+end

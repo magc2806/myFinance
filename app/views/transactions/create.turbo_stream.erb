@@ -1,4 +1,4 @@
-<%if @bank_account.transactions.size<=1%>
+<%if @bank_account.transactions.size <=1%>
   <%=turbo_stream.update("turbo_table", partial: "transactions/index_table", locals: {bank_account: @bank_account, transactions: @bank_account.transactions})%>
 <%else%>
   <%=turbo_stream.prepend("turbo_transactions", partial: "transactions/transaction", locals: {bank_account: @bank_account, transaction: @transaction})%>

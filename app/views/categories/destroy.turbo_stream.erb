@@ -1,4 +1,4 @@
-<%=turbo_stream.remove(@category.id)%>
+<%=turbo_stream.remove(@category)%>
 <%if @categories.size <=1%>
   <%=turbo_stream.update("turbo_categories_table", partial: "partials/no_results")%>
 <%end%> 

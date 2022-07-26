@@ -13,9 +13,12 @@
   <body>
   
     <%= render 'partials/nav'%>
-    <div id="turbo_flash">
-      <%= render 'partials/errors'%>
-    </div>
+    
+    <%=turbo_frame_tag "turbo_flash" do%>
+      <div>
+        <%= render 'partials/errors'%>
+      </div>
+    <%end%>
   
                 
     <div class="container">

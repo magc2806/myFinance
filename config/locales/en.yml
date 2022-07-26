@@ -38,10 +38,16 @@ en:
               blank: can't be blank
             name:
               blank: can't be blank
+        category:
+          attributes:
+            name:
+              blank: can't be blank
+              taken: can't be duplicated
         transaction:
           attributes:
             amount:
               other_than: can't be 0
+              not_a_number: can't be blank
             description:
               blank: can't be blank
             transaction_date:
@@ -77,6 +83,13 @@ en:
     submit:
       create: Create %{model}
       update: Update %{model}
+  reports:
+    messages:
+      sent: The report was sent
+    transaction:
+      all: All transactions
+      by_category: By category
+      report_file: Transaction_report.xlsx
   views:
     bank_account:
       edit: edit bank account
@@ -86,13 +99,15 @@ en:
         name: 'ex: main account'
     category:
       edit: edit category
+      included: 'yes'
       new: new category
-      included: si
-      not_included: "no"
+      no_category: Without category
+      not_included: 'no'
     common:
       are_you_sure: are you sure?
       back: back
       destroy: delete
+      download_excel: Download excel
       edit: edit
       messages:
         no_results: no reuslts
@@ -100,6 +115,8 @@ en:
         successful_destroy: Succesful delete
         successful_update: Successful update
       root: home
+      search: Search
+      send_excel: Send excel
       update: update
     devise:
       cancel_account: cancel my account

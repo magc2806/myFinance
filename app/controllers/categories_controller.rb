@@ -31,12 +31,12 @@ class CategoriesController < ApplicationController
     respond_to do |format|
       if @category.update(category_params)
         format.turbo_stream do 
-          render turbo_stream: turbo_stream.replace("#{@category.id}", partial: "categories/category", locals: {category: @category})        
+          render turbo_stream: turbo_stream.replace(@category, partial: "categories/category", locals: {category: @category})        
         end
                        
       else
         flash.now[:alert] = @category.errors.full_messages
-        format.html { render :new, status: :unprocessable_entity }        
+        format.html { render :edit, status: :unprocessable_entity }        
       end    
     end
   end
@@ -47,7 +47,7 @@ class CategoriesController < ApplicationController
         format.turbo_stream                        
       else
         flash.now[:alert] = @category.errors.full_messages
-        format.html { render :new, status: :unprocessable_entity }        
+        format.html { render :index, status: :unprocessable_entity }        
       end    
     end    
   end
