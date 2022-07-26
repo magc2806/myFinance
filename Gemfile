@@ -51,6 +51,13 @@ gem "bootsnap", require: false
 gem "bootstrap", "~> 5.1"
 gem "devise", "~> 4.8"
 
+gem 'caxlsx' #Excel file generation
+gem 'caxlsx_rails' #Excel file generation
+
+gem "sidekiq", "~> 6.5"
+gem "redis", "~> 4.7"
+
+
 
 
 group :development, :test do
@@ -76,5 +83,7 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+
 
 

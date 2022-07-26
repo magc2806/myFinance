@@ -16,6 +16,6 @@ class Category < ApplicationRecord
   has_many :transactions, inverse_of: :category, dependent: :destroy
 
   validates :name, presence: true
-  validates :name, uniqueness: { scope: [:active,:user_id] }, if: ->{active?}
+  validates :name, uniqueness: {case_sensitive: false, scope: [:active,:user_id] }, if: ->{active?}
 
 end

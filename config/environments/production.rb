@@ -82,6 +82,17 @@ Rails.application.configure do
   # require "syslog/logger"
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new "app-name")
 
+  #mailgun settings
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :authentication => :plain,
+    :address => "",
+    :port => 0,
+    :domain => "",
+    :user_name => "",
+    :password => ""
+  }
+  
   if ENV["RAILS_LOG_TO_STDOUT"].present?
     logger           = ActiveSupport::Logger.new(STDOUT)
     logger.formatter = config.log_formatter
@@ -89,5 +100,7 @@ Rails.application.configure do
   end
 
   # Do not dump schema after migrations.
+  
   config.active_record.dump_schema_after_migration = false
+  
 end

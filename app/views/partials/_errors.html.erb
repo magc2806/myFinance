@@ -1,16 +1,21 @@
-<% flash.each do |name, msg| %>
-  <%msg = [msg] if !msg.kind_of?(Array)%>
-  <%msg.each do |error|%>
-    <% if name == 'notice'%>
-      <div class="alert alert-primary alert-dismissible fade show" role="alert">
-        <strong><%= error%></strong> 
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-      </div>      
-    <%else%>
-      <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <strong><%= error%></strong> 
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-      </div>         
-    <%end%>   
-  <%end%>
-<% end %>
+<%=turbo_frame_tag "turbo_flash" do%>
+  <% flash.each do |name, msg| %>
+    <%msg = [msg] if !msg.kind_of?(Array)%>
+    <%msg.each do |error|%>
+      <% if name == 'notice'%>
+        <div class="alert alert-primary alert-dismissible fade show" role="alert">
+          <strong><%= error%></strong> 
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>      
+      <%else%>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+          <strong><%= error%></strong> 
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>         
+      <%end%>   
+    <%end%>
+  <% end %>
+<%end%>
+
+
+

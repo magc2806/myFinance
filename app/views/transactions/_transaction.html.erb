@@ -1,4 +1,4 @@
-<tr id=<%=transaction.id%>>
+<tr id=<%= dom_id transaction%>>
   <td><%= transaction.transaction_date.strftime("%d/%m/%Y")%></td>
   <td><%= transaction.description %></td>
   <td class= "badge rounded-pill" style="background-color: <%=transaction.category.present? ? transaction.category.color : "#FFFFFF"%>;"><%= transaction.category.try(:name) %></td>

@@ -38,10 +38,16 @@ es:
               blank: no puede estar vacío
             name:
               blank: no puede estar vacío
+        category:
+          attributes:
+            name:
+              blank: no puede estar vacío
+              taken: no puede estar repetido
         transaction:
           attributes:
             amount:
               other_than: no puede ser 0
+              not_a_number: no puede estar vacío
             description:
               blank: no puede estar vacía
             transaction_date:
@@ -92,6 +98,7 @@ es:
       edit: editar categoría
       included: si
       not_included: "no"
+      no_category: Sin categoría
     common:
       are_you_sure: "¿Estás seguro?"
       back: volver
@@ -104,6 +111,9 @@ es:
         successful_update: actualización exitosa
       root: inicio
       update: actualizar
+      search: Buscar
+      download_excel: Descargar excel
+      send_excel: Enviar excel
     devise:
       cancel_account: eliminar cuenta
       change_password: cambiar contraseña
@@ -125,3 +135,12 @@ es:
       error_searching:
         dates: Ambas fechas deben estar presentes
       new: nueva transacción
+  reports:
+    messages:
+      sent: "El reporte ha sido enviado"
+    transaction:
+      by_category: Por categoría
+      all: Todas las transacciones
+      report_file: "Reporte_transacciones.xlsx"
+
+
