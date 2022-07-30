@@ -63,12 +63,12 @@ Rails.application.configure do
   #config.action_mailer.perform_deliveries = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    :authentication => :plain,
-    :address => "",
-    :port => 0,
-    :domain => "",
-    :user_name => "",
-    :password => ""
+    :authentication => Rails.application.credentials.dig(:mailer, :mailgun,:authentication),
+    :address => Rails.application.credentials.dig(:mailer, :mailgun,:address),
+    :port => Rails.application.credentials.dig(:mailer, :mailgun,:port),
+    :domain => Rails.application.credentials.dig(:mailer, :mailgun,:domain),
+    :user_name => Rails.application.credentials.dig(:mailer, :mailgun,:user_name),
+    :password => Rails.application.credentials.dig(:mailer, :mailgun,:password)
   }
   # Raises error for missing translations.
   # config.i18n.raise_on_missing_translations = true

@@ -273,7 +273,6 @@ DEPENDENCIES
   devise (~> 4.8)
   importmap-rails
   jbuilder
-  mail (~> 2.7)
   pg (~> 1.1)
   puma (~> 5.0)
   rails (~> 7.0.3)
