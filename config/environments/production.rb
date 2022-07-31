@@ -95,6 +95,7 @@ Rails.application.configure do
     :user_name => Rails.application.credentials.dig(:mailer, :mailgun,:user_name),
     :password => Rails.application.credentials.dig(:mailer, :mailgun,:password)
   }
+  config.action_mailer.default_url_options = { host: 'myfinance-app-project'}
   
   if ENV["RAILS_LOG_TO_STDOUT"].present?
     logger           = ActiveSupport::Logger.new(STDOUT)
