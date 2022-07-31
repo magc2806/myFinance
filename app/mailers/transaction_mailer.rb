@@ -6,6 +6,11 @@ class TransactionMailer < ApplicationMailer
     attachments[I18n.t('reports.transaction.report_file')] = {mime_type: Mime[:xlsx], content: attachment, encoding: 'base64'}
     mail(to: @user.email, subject: 'Reporte de transacciones')  
   end
+  
+  def hello_email    
+    @user = params[:user]
+    mail(to: @user.email, subject: 'Reporte de transacciones')  
+  end
 
 =begin
   def excel_report_email excel
