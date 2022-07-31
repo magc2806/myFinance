@@ -88,12 +88,12 @@ Rails.application.configure do
   config.action_mailer.perform_deliveries = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    :authentication => Rails.application.credentials.dig(:mailer, :mailgun,:authentication),
-    :address => Rails.application.credentials.dig(:mailer, :mailgun,:address),
-    :port => Rails.application.credentials.dig(:mailer, :mailgun,:port),
-    :domain => Rails.application.credentials.dig(:mailer, :mailgun,:domain),
-    :user_name => Rails.application.credentials.dig(:mailer, :mailgun,:user_name),
-    :password => Rails.application.credentials.dig(:mailer, :mailgun,:password)
+    :authentication => :plain,
+    :address => ENV['MAILGUN_SMTP_SERVER'],
+    :port => ENV['MAILGUN_SMTP_PORT'],
+    :domain => ENV['MAILGUN_DOMAIN'],
+    :user_name => ENV['MAILGUN_SMTP_LOGIN'],
+    :password => ENV['MAILGUN_SMTP_PASSWORD']
   }
   
   if ENV["RAILS_LOG_TO_STDOUT"].present?
