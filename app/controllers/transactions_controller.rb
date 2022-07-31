@@ -80,9 +80,7 @@ class TransactionsController < ApplicationController
   def send_excel    
     excel_file = Transaction.generate_excel_report(@transactions)
     excel_file = Base64.encode64(excel_file.to_stream.string)
-    HelloWorldJob.perform_later(@transactions.last.id)
-    TransactionMailer.with(user: current_user).hello_email.deliver_later
-    #TransactionMailer.with(user: current_user).excel_report_email(excel_file).deliver_later
+    TransactionMailer.with(user: current_user).excel_report_email(excel_file).deliver_later
     if turbo_frame_request?
       flash.now[:notice]= I18n.t('reports.messages.sent')             
       render partial: "partials/errors", locals: {flash: flash}
