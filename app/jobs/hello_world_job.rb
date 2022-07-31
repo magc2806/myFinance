@@ -5,7 +5,10 @@ class HelloWorldJob < ApplicationJob
     # Simulates a long, time-consuming task
     sleep 5
     # Will display current time, milliseconds included
-    p "Generando excel from HelloWorldJob #{Time.now().strftime('%F - %H:%M:%S.%L')}"
+    p "########################################################################"
+    p "Holaaaaa #{Time.now().strftime('%F - %H:%M:%S.%L')}"
+    p "########################################################################"
+
   end
 
 end
