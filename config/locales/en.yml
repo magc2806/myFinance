@@ -58,6 +58,7 @@ en:
               blank: can't be blank
             email:
               invalid: without valid format
+              taken: already used
     models:
       bank_account:
         one: bank account
@@ -139,3 +140,6 @@ en:
       error_searching:
         dates: both dates must be present
       new: new transaction
+      placeholder:
+        description: Search by description
+        amount: Search by amount

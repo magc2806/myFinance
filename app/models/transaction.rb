@@ -46,7 +46,7 @@ class Transaction < ApplicationRecord
     excel_sheets_data.each do |sheet_data|
       workbook.add_worksheet(name: sheet_data[:worksheet_name]) do |sheet|
         sheet.add_row sheet_data[:headers] unless sheet_data[:headers].empty? 
-        sheet_data[:content].each do |row|
+        sheet_data[:content].each do |row|          
           sheet.add_row row
         end
       end
@@ -89,7 +89,10 @@ class Transaction < ApplicationRecord
       data_hash[:content] << [category]
       transactions.each do |transaction|
         data_hash[:content] << [transaction.transaction_date,transaction.description,transaction.amount]
-      end          
+      end
+      total = transactions.sum(&:amount)
+      data_hash[:content] << ['', 'Total', total]
+
     end
     data_hash
   end

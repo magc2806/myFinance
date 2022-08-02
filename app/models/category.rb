@@ -18,4 +18,12 @@ class Category < ApplicationRecord
   validates :name, presence: true
   validates :name, uniqueness: {case_sensitive: false, scope: [:active,:user_id] }, if: ->{active?}
 
+  before_update :free_transactions, if: :active_changed?
+
+  def free_transactions
+    self.transactions.update_all(category_id: nil) unless self.active     
+  end
+
+
 end
+

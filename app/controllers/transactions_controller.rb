@@ -130,6 +130,14 @@ class TransactionsController < ApplicationController
 
   def get_transactions
         
-    @transactions = Transaction.includes(:category).search_by_filter(@bank_account.id,@category,@description, @amount, @min_date, @max_date)    
+    @transactions = Transaction.
+                                includes(:category).
+                                search_by_filter(
+                                  @bank_account.id,
+                                  @category,@description, 
+                                  @amount, 
+                                  @min_date, 
+                                  @max_date
+                                )    
   end
 end

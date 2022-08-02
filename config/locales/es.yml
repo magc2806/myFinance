@@ -58,6 +58,7 @@ es:
               blank: no puede estar vacía
             email:
               invalid: con formato inválido
+              taken: ya utilizado
     models:
       bank_account:
         one: cuenta bancaria
@@ -135,6 +136,9 @@ es:
       error_searching:
         dates: Ambas fechas deben estar presentes
       new: nueva transacción
+      placeholder:
+        description: Buscar por descripcción
+        amount: Buscar por monto
   reports:
     messages:
       sent: "El reporte ha sido enviado"
